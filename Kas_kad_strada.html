@@ -34,8 +34,9 @@ button:focus-visible{outline:4px solid var(--tinte);outline-offset:3px;}
 .poga.klusa{background:var(--beige);box-shadow:0 5px 0 #c3c9a0;font-weight:400;}
 .poga[disabled]{opacity:.4;cursor:default;}
 /* pilnekrāns */
-#pilnekrans{position:absolute;right:22px;bottom:20px;width:58px;height:58px;border-radius:14px;border:0;background:var(--beige);cursor:pointer;z-index:50;box-shadow:0 3px 0 #c3c9a0;display:flex;align-items:center;justify-content:center;}
-#pilnekrans svg{width:30px;height:30px;}
+#pilnekrans{position:absolute;right:22px;bottom:16px;height:54px;padding:0 22px 0 16px;gap:10px;border-radius:14px;border:0;background:var(--bronze);color:var(--tinte);font-size:20px;font-weight:700;cursor:pointer;z-index:50;box-shadow:0 4px 0 #b78656;display:flex;align-items:center;justify-content:center;white-space:nowrap;}
+#pilnekrans:active{transform:translateY(2px);box-shadow:0 2px 0 #b78656;}
+#pilnekrans svg{width:26px;height:26px;flex-shrink:0;}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 /* mozaīkas fons sākumekrānos */
 #fons{position:absolute;inset:0;display:none;background:#FEFAE0;}
@@ -82,9 +83,9 @@ button:focus-visible{outline:4px solid var(--tinte);outline-offset:3px;}
 #atbilde .apz span{display:inline-flex;align-items:center;gap:6px;}
 #atbilde .apz i{width:16px;height:16px;border-radius:4px;display:inline-block;}
 #atbilde[hidden]{display:block!important;visibility:hidden;}
-#vadiba{position:absolute;left:60px;right:110px;bottom:52px;display:flex;align-items:center;gap:12px;}
+#vadiba{position:absolute;left:60px;right:380px;bottom:52px;display:flex;align-items:center;gap:12px;}
 #sikbildes{display:flex;gap:10px;margin:0 auto;}
-#sikbildes button{width:86px;height:64px;border-radius:12px;overflow:hidden;border:3px solid transparent;padding:0;cursor:pointer;background:#fff;opacity:.6;}
+#sikbildes button{width:74px;height:56px;border-radius:12px;overflow:hidden;border:3px solid transparent;padding:0;cursor:pointer;background:#fff;opacity:.6;}
 #sikbildes button img{width:100%;height:100%;object-fit:cover;display:block;}
 #sikbildes button.aktiva{border-color:var(--bronze);opacity:1;}
 #sikbildes button.redzets{opacity:1;}
@@ -101,7 +102,7 @@ button:focus-visible{outline:4px solid var(--tinte);outline-offset:3px;}
 #legenda2{position:absolute;left:40px;right:40px;top:600px;display:flex;justify-content:center;gap:28px;font-size:21px;}
 #legenda2 span{display:inline-flex;align-items:center;gap:8px;}
 #legenda2 i{width:20px;height:20px;border-radius:50%;display:inline-block;}
-#saruna{position:absolute;left:220px;right:220px;top:650px;background:var(--papaya);border-radius:22px;padding:14px 26px;display:flex;align-items:center;gap:18px;}
+#saruna{position:absolute;left:60px;right:380px;top:650px;background:var(--papaya);border-radius:22px;padding:14px 26px;display:flex;align-items:center;gap:18px;}
 #saruna .birka{font-size:16px;font-weight:700;letter-spacing:.1em;color:#9a6a3c;flex-shrink:0;}
 #saruna .t{font-size:25px;font-weight:700;flex:1;}
 #saruna button{flex-shrink:0;}
@@ -214,7 +215,7 @@ button:focus-visible{outline:4px solid var(--tinte);outline-offset:3px;}
   const p=document.getElementById('pilnekrans');
   const ikIn='<svg viewBox="0 0 24 24" fill="none" stroke="#3D4A2A" stroke-width="2.4" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
   const ikOut='<svg viewBox="0 0 24 24" fill="none" stroke="#3D4A2A" stroke-width="2.4" stroke-linecap="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>';
-  function atj(){ const f=!!(document.fullscreenElement||document.webkitFullscreenElement); p.innerHTML=f?ikOut:ikIn; p.setAttribute('aria-label',f?'Iziet no pilnekrāna':'Pilnekrāns'); }
+  function atj(){ const f=!!(document.fullscreenElement||document.webkitFullscreenElement); p.innerHTML=(f?ikOut:ikIn)+'<span>'+(f?'Iziet no pilnekrāna režīma':'Atvērt pilnekrāna režīmu')+'</span>'; p.setAttribute('aria-label',f?'Iziet no pilnekrāna režīma':'Atvērt pilnekrāna režīmu'); }
   p.onclick=()=>{
     const f=document.fullscreenElement||document.webkitFullscreenElement;
     if(f){ (document.exitFullscreen||document.webkitExitFullscreen).call(document); }

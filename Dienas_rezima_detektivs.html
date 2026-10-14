@@ -34,8 +34,9 @@ button:focus-visible{outline:4px solid var(--tinte);outline-offset:3px;}
 .poga.klusa{background:var(--beige);box-shadow:0 5px 0 #c3c9a0;font-weight:400;}
 .poga[disabled]{opacity:.4;cursor:default;}
 /* pilnekrāns */
-#pilnekrans{position:absolute;right:22px;bottom:20px;width:58px;height:58px;border-radius:14px;border:0;background:var(--beige);cursor:pointer;z-index:50;box-shadow:0 3px 0 #c3c9a0;display:flex;align-items:center;justify-content:center;}
-#pilnekrans svg{width:30px;height:30px;}
+#pilnekrans{position:absolute;right:22px;bottom:16px;height:54px;padding:0 22px 0 16px;gap:10px;border-radius:14px;border:0;background:var(--bronze);color:var(--tinte);font-size:20px;font-weight:700;cursor:pointer;z-index:50;box-shadow:0 4px 0 #b78656;display:flex;align-items:center;justify-content:center;white-space:nowrap;}
+#pilnekrans:active{transform:translateY(2px);box-shadow:0 2px 0 #b78656;}
+#pilnekrans svg{width:26px;height:26px;flex-shrink:0;}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 /* mozaīkas fons sākumekrānos */
 #fons{position:absolute;inset:0;display:none;background:#FEFAE0;}
@@ -245,7 +246,7 @@ button:focus-visible{outline:4px solid var(--tinte);outline-offset:3px;}
   const p=document.getElementById('pilnekrans');
   const ikIn='<svg viewBox="0 0 24 24" fill="none" stroke="#3D4A2A" stroke-width="2.4" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
   const ikOut='<svg viewBox="0 0 24 24" fill="none" stroke="#3D4A2A" stroke-width="2.4" stroke-linecap="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>';
-  function atj(){ const f=!!(document.fullscreenElement||document.webkitFullscreenElement); p.innerHTML=f?ikOut:ikIn; p.setAttribute('aria-label',f?'Iziet no pilnekrāna':'Pilnekrāns'); }
+  function atj(){ const f=!!(document.fullscreenElement||document.webkitFullscreenElement); p.innerHTML=(f?ikOut:ikIn)+'<span>'+(f?'Iziet no pilnekrāna režīma':'Atvērt pilnekrāna režīmu')+'</span>'; p.setAttribute('aria-label',f?'Iziet no pilnekrāna režīma':'Atvērt pilnekrāna režīmu'); }
   p.onclick=()=>{
     const f=document.fullscreenElement||document.webkitFullscreenElement;
     if(f){ (document.exitFullscreen||document.webkitExitFullscreen).call(document); }
